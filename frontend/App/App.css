@@ -1,0 +1,120 @@
+/* Google Fonts の Domine を全体に適用 */
+@import url("https://fonts.googleapis.com/css2?family=Domine&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Domine', serif; /* 正しいフォント名を使用 */
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f5; /* ページ全体の背景色を微調整 */
+  line-height: 1.6;
+  color: #333;
+}
+
+/* #rootのスタイル */
+#root {
+  max-width: 1280px;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 300ms, box-shadow 300ms;
+}
+#root:hover {
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ロゴのスタイル */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter, transform;
+  transition: filter 300ms, transform 300ms;
+  cursor: pointer;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+  transform: scale(1.1);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+  transform: rotate(10deg);
+}
+
+/* 回転アニメーション */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* カードのスタイル */
+.card {
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 300ms, box-shadow 300ms;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* テキストのスタイル */
+.read-the-docs {
+  color: #888;
+  font-style: italic;
+  transition: color 300ms;
+}
+.read-the-docs:hover {
+  color: #555;
+}
+
+/* メディアクエリ: スマホ向けに調整 */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+  .logo {
+    height: 4em;
+  }
+  .card {
+    padding: 1em;
+  }
+  .read-the-docs {
+    font-size: 0.9rem;
+  }
+}
+
+/* ナビゲーションのリンクにホバー効果 */
+nav a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #61dafb;
+  transition: width 300ms;
+}
+nav a:hover::after {
+  width: 100%;
+}
