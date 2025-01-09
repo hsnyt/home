@@ -10,7 +10,9 @@ const App: React.FC = () => {
         <div>
             <Router>
                 <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 py-2 sm:px-10 sm:py-4 bg-white shadow-md z-10">
-                    <p className="text-xl sm:text-4xl text-black">Yuta Hoshino</p>
+                    <a href="/">
+                        <p className="text-xl sm:text-4xl text-black">Yuta Hoshino</p>
+                    </a>
 
                     {/* ナビゲーションメニュー */}
                     <nav className="flex gap-4 sm:gap-8 items-center">

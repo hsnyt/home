@@ -29,7 +29,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({ title, description, skills 
                     <span
                         className="mt-2 text-lg font-medium">{skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}</span>
                     <p className="text-xs mt-2 text-gray-600">{skill.description}</p>
-                    {skill.level && ( // level が存在する場合のみ表示
+                    {skill.level && (
                         <p className="text-sm mt-2">Expertise: {'★'.repeat(
                             skill.level === 'Beginner' ? 1 :
                                 skill.level === 'Intermediate' ? 2 :
@@ -55,8 +55,7 @@ const Stack: React.FC = () => (
                         <span className="mr-2">{'★'}</span>
                         <strong className="mr-2">Beginner:</strong>
                     </div>
-                    <span
-                        className="block sm:inline sm:mt-0 mt-2">基本的な知識や操作を習得し、簡単なタスクを実行可能。</span>
+                    <span className="block sm:inline sm:mt-0 mt-2">基本的な知識や操作を習得し、簡単なタスクを実行可能。</span>
                 </li>
                 <li className="flex flex-wrap sm:flex-nowrap items-start">
                     <div className="flex items-center sm:mr-4">
@@ -70,59 +69,67 @@ const Stack: React.FC = () => (
                         <span className="mr-2">{'★★★'}</span>
                         <strong className="mr-2">Advanced:</strong>
                     </div>
-                    <span
-                        className="block sm:inline sm:mt-0 mt-2">複雑な問題に対応可能で、他者をサポートできるレベル。</span>
+                    <span className="block sm:inline sm:mt-0 mt-2">複雑な問題に対応可能で、他者をサポートできるレベル。</span>
                 </li>
             </ul>
         </div>
 
-
+        {/* Frontend Skills */}
         <SkillSection
-            title="Frontend"
-            description="フロントエンド開発で使用する主要なスキルセットです。"
-            skills={[
-                {name: 'react', description: '', level: 'Intermediate',},
-                {name: 'ts', description: '', level: 'Intermediate'},
-                {name: 'hono', description: '', level: 'Beginner'},
-                {name: 'tailwind', description: '',},
-            ]}
+            title="Frontend Frameworks"
+            description="フロントエンド開発で使用する主要なフレームワークです。"
+            skills={[{ name: 'react', description: '', level: 'Intermediate' }, { name: 'hono', description: '', level: 'Beginner' }, { name: 'ts', description: '', level: 'Beginner' }]}
         />
 
         <SkillSection
-            title="Backend"
-            description="バックエンドで使用するスキルセットです。"
-            skills={[
-                {name: 'c', description: '', level: 'Intermediate'},
-                {name: 'php', description: '', level: 'Intermediate'},
-                {name: 'python', description: '', level: 'Beginner'},
-                {name: 'mysql', description: '', level: 'Intermediate'},
-            ]}
+            title="Styling & UI"
+            description="UI/UX デザインとスタイリングに関するスキルセットです。"
+            skills={[{ name: 'tailwind', description: '' }]}
+        />
+
+        {/* Backend Skills */}
+        <SkillSection
+            title="Backend Development"
+            description="バックエンドの開発で使用するスキルセットです。"
+            skills={[{ name: 'php', description: '', level: 'Intermediate' }, { name: 'python', description: '', level: 'Beginner' }, { name: 'c', description: '', level: 'Beginner' }]}
         />
 
         <SkillSection
-            title="Cloud"
-            description="クラウドに関するスキルセットです。"
-            skills={[
-                {name: 'aws', description: '', level: 'Intermediate'},
-                {name: 'gcp', description: '', level: 'Intermediate'},
-            ]}
+            title="Database"
+            description="データベース管理とクエリ操作に関するスキルセットです。"
+            skills={[{ name: 'mysql', description: '', level: 'Intermediate' }]}
+        />
+
+        {/* Cloud Skills */}
+        <SkillSection
+            title="Cloud & Infrastructure"
+            description="クラウドプラットフォームとインフラ関連のスキルセットです。"
+            skills={[{ name: 'aws', description: '', level: 'Beginner' }, { name: 'gcp', description: '', level: 'Beginner' }, { name: 'cloudflare', description: '', level: 'Beginner' }]}
+        />
+
+        {/* Dev Tools */}
+        <SkillSection
+            title="Development Tools"
+            description="開発で使用する主要なツールです。"
+            skills={[{ name: 'docker', description: '', level: 'Beginner' }, { name: 'zapier', description: '', level: 'Intermediate' }, { name: 'line', description: '', level: 'Intermediate' }, { name: 'contentful', description: '', level: 'Intermediate' }]}
         />
 
         <SkillSection
-            title="Dev Tools"
-            description="開発で使用する各種ツールのスキルセットです。"
-            skills={[
-                {name: 'zapier', description: '痒い所に手が届くノーコードツールで、開発でどうしても必要な場合のみスポットで使用してきました。', level: 'Intermediate'},
-                {name: 'docker', description: '', level: 'Beginner'},
-                {name: 'notion', description: 'プロジェクト管理から簡易的なメモまで幅広く使用しており、重宝しています。'},
-                {name: 'stripe', description: 'Stripeの導入から携わっているわけではないですが、決済リンクの管理・作成を担当してきました。', level: 'Beginner'},
-                {name: 'ai', description: '単純作業がどんどんAIにシフトチェンジしていく中、私もAIの入りとしてChatGPTを使用しています。', level: 'Intermediate'},
-                {name: 'salesforce', description: 'Stripeの導入から携わっているわけではないですが、決済リンクの管理・作成を担当してきました。', level: 'Beginner'},
-                {name: 'line', description: 'Flexメッセージを使ったエンドユーザーへの配信であったり、Messaging APIを使った開発をしてきました。', level: 'Beginner'},
-                {name: 'figma', description: '基本的な操作は一通り経験してきました。', level: 'Intermediate'},
-                {name: 'photoshop', description: '', level: 'Beginner'},
-            ]}
+            title="Design Tools"
+            description="デザイン関連のツールスキルセットです。"
+            skills={[{ name: 'figma', description: '', level: 'Intermediate' }, { name: 'photoshop', description: '', level: 'Beginner' }]}
         />
+
+        <SkillSection
+            title="Management Tools"
+            description="プロジェクト管理および業務効率化ツールです。"
+            skills={[{ name: 'notion', description: '' }, { name: 'salesforce', description: '', level: 'Beginner' }]}
+        />
+
+        <SkillSection
+            title="Automation Tools"
+            description="自動化と効率化のためのツールです。"
+            skills={[{ name: 'ai', description: '', level: 'Intermediate' }]} />
     </div>
 );
 
