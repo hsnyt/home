@@ -10,14 +10,12 @@ interface Skill {
 
 interface SkillSectionProps {
     title: string;
-    description: string;
     skills: Skill[];
 }
 
-const SkillSection: React.FC<SkillSectionProps> = ({ title, description, skills }) => (
+const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
     <div className="text-center p-6">
         <p className="text-3xl mb-4 font-bold">{title}</p>
-        <p className="text-md mb-6 text-gray-700">{description}</p>
         <div className="flex flex-wrap gap-8 justify-center">
             {skills.map((skill) => (
                 <div key={skill.name} className="relative group flex flex-col items-center text-center w-40">
@@ -76,60 +74,47 @@ const Stack: React.FC = () => (
 
         {/* Frontend Skills */}
         <SkillSection
-            title="Frontend Frameworks"
-            description="フロントエンド開発で使用する主要なフレームワークです。"
+            title="Frontend Development"
             skills={[{ name: 'react', description: '', level: 'Intermediate' }, { name: 'hono', description: '', level: 'Beginner' }, { name: 'ts', description: '', level: 'Beginner' }]}
         />
 
         <SkillSection
             title="Styling & UI"
-            description="UI/UX デザインとスタイリングに関するスキルセットです。"
             skills={[{ name: 'tailwind', description: '' }]}
         />
 
         {/* Backend Skills */}
         <SkillSection
             title="Backend Development"
-            description="バックエンドの開発で使用するスキルセットです。"
             skills={[{ name: 'php', description: '', level: 'Intermediate' }, { name: 'python', description: '', level: 'Beginner' }, { name: 'c', description: '', level: 'Beginner' }]}
         />
 
         <SkillSection
             title="Database"
-            description="データベース管理とクエリ操作に関するスキルセットです。"
             skills={[{ name: 'mysql', description: '', level: 'Intermediate' }]}
         />
 
         {/* Cloud Skills */}
         <SkillSection
-            title="Cloud & Infrastructure"
-            description="クラウドプラットフォームとインフラ関連のスキルセットです。"
+            title="Infrastructure"
             skills={[{ name: 'aws', description: '', level: 'Beginner' }, { name: 'gcp', description: '', level: 'Beginner' }, { name: 'cloudflare', description: '', level: 'Beginner' }]}
         />
 
         {/* Dev Tools */}
         <SkillSection
             title="Development Tools"
-            description="開発で使用する主要なツールです。"
             skills={[{ name: 'docker', description: '', level: 'Beginner' }, { name: 'zapier', description: '', level: 'Intermediate' }, { name: 'line', description: '', level: 'Intermediate' }, { name: 'contentful', description: '', level: 'Intermediate' }]}
         />
 
         <SkillSection
             title="Design Tools"
-            description="デザイン関連のツールスキルセットです。"
             skills={[{ name: 'figma', description: '', level: 'Intermediate' }, { name: 'photoshop', description: '', level: 'Beginner' }]}
         />
 
         <SkillSection
-            title="Management Tools"
-            description="プロジェクト管理および業務効率化ツールです。"
+            title="Others"
             skills={[{ name: 'notion', description: '' }, { name: 'salesforce', description: '', level: 'Beginner' }]}
         />
-
-        <SkillSection
-            title="Automation Tools"
-            description="自動化と効率化のためのツールです。"
-            skills={[{ name: 'ai', description: '', level: 'Intermediate' }]} />
     </div>
 );
 
