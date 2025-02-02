@@ -4,8 +4,6 @@ const getImage = (fileName: string): string => `/images/${fileName}.png`;
 
 interface Skill {
     name: string;
-    description: string;
-    level?: 'Beginner' | 'Intermediate' | 'Advanced';
 }
 
 interface SkillSectionProps {
@@ -26,14 +24,6 @@ const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
                     />
                     <span
                         className="mt-2 text-lg font-medium">{skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}</span>
-                    <p className="text-xs mt-2 text-gray-600">{skill.description}</p>
-                    {skill.level && (
-                        <p className="text-sm mt-2">Expertise: {'★'.repeat(
-                            skill.level === 'Beginner' ? 1 :
-                                skill.level === 'Intermediate' ? 2 :
-                                    skill.level === 'Advanced' ? 3 : 4
-                        )}</p>
-                    )}
                 </div>
             ))}
         </div>
@@ -42,78 +32,49 @@ const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
 
 const Stack: React.FC = () => (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-12 font-sans">
-        <div className="text-center">
-            <p className="text-2xl font-bold mb-4">
-                <span className="block sm:inline">スキルレベルの</span>
-                <span className="block sm:inline sm:mb-0 mb-8">評価基準</span>
-            </p>
-            <ul className="text-md text-left text-gray-700 mx-auto max-w-xl space-y-6">
-                <li className="flex flex-wrap sm:flex-nowrap items-start">
-                    <div className="flex items-center sm:mr-4">
-                        <span className="mr-2">{'★'}</span>
-                        <strong className="mr-2">Beginner:</strong>
-                    </div>
-                    <span className="block sm:inline sm:mt-0 mt-2">基本的な知識や操作を習得し、簡単なタスクを実行可能。</span>
-                </li>
-                <li className="flex flex-wrap sm:flex-nowrap items-start">
-                    <div className="flex items-center sm:mr-4">
-                        <span className="mr-2">{'★★'}</span>
-                        <strong className="mr-2">Intermediate:</strong>
-                    </div>
-                    <span className="block sm:inline sm:mt-0 mt-2">実務経験があり、一般的なタスクをこなせる。</span>
-                </li>
-                <li className="flex flex-wrap sm:flex-nowrap items-start">
-                    <div className="flex items-center sm:mr-4">
-                        <span className="mr-2">{'★★★'}</span>
-                        <strong className="mr-2">Advanced:</strong>
-                    </div>
-                    <span className="block sm:inline sm:mt-0 mt-2">複雑な問題に対応可能で、他者をサポートできるレベル。</span>
-                </li>
-            </ul>
-        </div>
 
         {/* Frontend Skills */}
         <SkillSection
             title="Frontend Development"
-            skills={[{ name: 'react', description: '', level: 'Intermediate' }, { name: 'hono', description: '', level: 'Beginner' }, { name: 'ts', description: '', level: 'Beginner' }]}
+            skills={[{ name: 'react' }, { name: 'hono'}, { name: 'ts'}]}
         />
 
         <SkillSection
             title="Styling & UI"
-            skills={[{ name: 'tailwind', description: '' }]}
+            skills={[{ name: 'tailwind'}]}
         />
 
         {/* Backend Skills */}
         <SkillSection
             title="Backend Development"
-            skills={[{ name: 'php', description: '', level: 'Intermediate' }, { name: 'python', description: '', level: 'Beginner' }, { name: 'c', description: '', level: 'Beginner' }]}
+            skills={[{ name: 'php' }, { name: 'python' }, { name: 'c' }]}
         />
 
         <SkillSection
             title="Database"
-            skills={[{ name: 'mysql', description: '', level: 'Intermediate' }]}
+            skills={[{ name: 'mysql' }]}
         />
 
         {/* Cloud Skills */}
         <SkillSection
             title="Infrastructure"
-            skills={[{ name: 'aws', description: '', level: 'Beginner' }, { name: 'gcp', description: '', level: 'Beginner' }, { name: 'cloudflare', description: '', level: 'Beginner' }]}
+            skills={[{ name: 'aws' }, { name: 'gcp' }, { name: 'cloudflare' }]}
         />
 
         {/* Dev Tools */}
         <SkillSection
             title="Development Tools"
-            skills={[{ name: 'docker', description: '', level: 'Beginner' }, { name: 'zapier', description: '', level: 'Intermediate' }, { name: 'line', description: '', level: 'Intermediate' }, { name: 'contentful', description: '', level: 'Intermediate' }]}
+            skills={[{ name: 'docker' }, { name: 'zapier' }, { name: 'line' }, { name: 'contentful' }]}
         />
 
         <SkillSection
             title="Design Tools"
-            skills={[{ name: 'figma', description: '', level: 'Intermediate' }, { name: 'photoshop', description: '', level: 'Beginner' }]}
+            skills={[{ name: 'figma' }, { name: 'photoshop' }]}
         />
 
         <SkillSection
             title="Others"
-            skills={[{ name: 'notion', description: '' }, { name: 'salesforce', description: '', level: 'Beginner' }]}
+            skills={[{ name: 'notion' }, { name: 'salesforce' }]}
         />
     </div>
 );

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Stack from './pages/Stack';
-import Blog from './pages/Blog';
+import Freeboard from './pages/Freeboard';
 import Contact from './pages/Contact';
 
 const App: React.FC = () => {
@@ -29,16 +29,16 @@ const App: React.FC = () => {
                             TechnicalStack
                         </Link>
                         <Link
-                            to="/blog"
-                            className="text-sm sm:text-xl py-2 no-underline text-black"
-                        >
-                            Blog
-                        </Link>
-                        <Link
                             to="/contact"
                             className="text-sm sm:text-xl py-2 no-underline text-black"
                         >
                             Contact
+                        </Link>
+                        <Link
+                            to="/Freeboard"
+                            className="text-sm sm:text-xl py-2 no-underline text-black"
+                        >
+                            Freeboard
                         </Link>
                     </nav>
                 </header>
@@ -47,7 +47,7 @@ const App: React.FC = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/stack" element={<Stack />} />
-                        <Route path="/blog" element={<Blog />} />
+                        <Route path="/Freeboard" element={<Freeboard />} />
                         <Route path="/contact" element={<Contact />} />
                     </Routes>
                 </div>
