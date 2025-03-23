@@ -31,7 +31,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
 );
 
 const Stack: React.FC = () => (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-12 font-sans">
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-12 font-sans　pt-20 sm:pt-32">
 
         {/* Frontend Skills */}
         <SkillSection

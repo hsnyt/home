@@ -43,7 +43,7 @@ const App: React.FC = () => {
                     </nav>
                 </header>
 
-                <div className="pt-20 sm:pt-32">
+                <div>
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/stack" element={<Stack />} />
