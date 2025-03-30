@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Stack from './pages/Stack';
 import Freeboard from './pages/Freeboard';
 import Contact from './pages/Contact';
+import Production from "./pages/Production.tsx";
 
 const App: React.FC = () => {
     return (
@@ -15,30 +16,36 @@ const App: React.FC = () => {
                     </a>
 
                     {/* ナビゲーションメニュー */}
-                    <nav className="flex gap-4 sm:gap-8 items-center">
+                    <nav className="flex gap-3 sm:gap-8 items-center">
                         <Link
                             to="/"
-                            className="text-sm sm:text-xl py-2 no-underline text-black"
+                            className="text-xs sm:text-xl py-1 no-underline text-black"
                         >
                             Home
                         </Link>
                         <Link
                             to="/stack"
-                            className="text-sm sm:text-xl py-2 no-underline text-black"
+                            className="text-xs sm:text-xl py-1 no-underline text-black"
                         >
                             TechnicalStack
                         </Link>
                         <Link
-                            to="/contact"
-                            className="text-sm sm:text-xl py-2 no-underline text-black"
+                            to="/production"
+                            className="text-xs sm:text-xl py-1 no-underline text-black"
                         >
-                            Contact
+                            Production
                         </Link>
                         <Link
                             to="/Freeboard"
-                            className="text-sm sm:text-xl py-2 no-underline text-black"
+                            className="text-xs sm:text-xl py-1 no-underline text-black"
                         >
                             Freeboard
+                        </Link>
+                        <Link
+                            to="/contact"
+                            className="text-xs sm:text-xl py-1 no-underline text-black"
+                        >
+                            Contact
                         </Link>
                     </nav>
                 </header>
@@ -47,13 +54,14 @@ const App: React.FC = () => {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/stack" element={<Stack />} />
-                        <Route path="/Freeboard" element={<Freeboard />} />
                         <Route path="/contact" element={<Contact />} />
+                        <Route path="/Freeboard" element={<Freeboard />} />
+                        <Route path="/Production" element={<Production />} />
                     </Routes>
                 </div>
 
                 <footer className="pb-10">
-                    <p className="text-center pt-8">@2024 Yuta Hoshino</p>
+                    <p className="text-center pt-8">@2023 Yuta Hoshino</p>
                 </footer>
             </Router>
         </div>
