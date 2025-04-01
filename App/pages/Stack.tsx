@@ -31,51 +31,53 @@ const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
 );
 
 const Stack: React.FC = () => (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-12 font-sans　pt-20 sm:pt-64">
+    <div className="mt-24">
+        <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-12 font-sans　pt-20">
 
-        {/* Frontend Skills */}
-        <SkillSection
-            title="Frontend Development"
-            skills={[{ name: 'react' }, { name: 'hono'}, { name: 'ts'}]}
-        />
+            {/* Frontend Skills */}
+            <SkillSection
+                title="Frontend Development"
+                skills={[{name: 'react'}, {name: 'hono'}, {name: 'ts'}]}
+            />
 
-        <SkillSection
-            title="Styling & UI"
-            skills={[{ name: 'tailwind'}]}
-        />
+            <SkillSection
+                title="Styling & UI"
+                skills={[{name: 'tailwind'}]}
+            />
 
-        {/* Backend Skills */}
-        <SkillSection
-            title="Backend Development"
-            skills={[{ name: 'php' }, { name: 'python' }, { name: 'c' }]}
-        />
+            {/* Backend Skills */}
+            <SkillSection
+                title="Backend Development"
+                skills={[{name: 'php'}, {name: 'python'}, {name: 'c'}]}
+            />
 
-        <SkillSection
-            title="Database"
-            skills={[{ name: 'mysql' }]}
-        />
+            <SkillSection
+                title="Database"
+                skills={[{name: 'mysql'}]}
+            />
 
-        {/* Cloud Skills */}
-        <SkillSection
-            title="Infrastructure"
-            skills={[{ name: 'aws' }, { name: 'gcp' }, { name: 'cloudflare' }]}
-        />
+            {/* Cloud Skills */}
+            <SkillSection
+                title="Infrastructure"
+                skills={[{name: 'aws'}, {name: 'gcp'}, {name: 'cloudflare'}]}
+            />
 
-        {/* Dev Tools */}
-        <SkillSection
-            title="Development Tools"
-            skills={[{ name: 'docker' }, { name: 'zapier' }, { name: 'line' }, { name: 'contentful' }]}
-        />
+            {/* Dev Tools */}
+            <SkillSection
+                title="Development Tools"
+                skills={[{name: 'docker'}, {name: 'zapier'}, {name: 'line'}, {name: 'contentful'}]}
+            />
 
-        <SkillSection
-            title="Design Tools"
-            skills={[{ name: 'figma' }, { name: 'photoshop' }]}
-        />
+            <SkillSection
+                title="Design Tools"
+                skills={[{name: 'figma'}, {name: 'photoshop'}]}
+            />
 
-        <SkillSection
-            title="Others"
-            skills={[{ name: 'notion' }, { name: 'salesforce' }]}
-        />
+            <SkillSection
+                title="Others"
+                skills={[{name: 'notion'}, {name: 'salesforce'}]}
+            />
+        </div>
     </div>
 );
 
