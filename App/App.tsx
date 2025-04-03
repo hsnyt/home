@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import Stack from './pages/Stack';
 import Freeboard from './pages/Freeboard';
 import Contact from './pages/Contact';
-import Production from "./pages/Production.tsx";
+import Product from "./pages/Production.tsx";
 
 const App: React.FC = () => {
     return (
@@ -19,31 +19,31 @@ const App: React.FC = () => {
                     <nav className="flex gap-3 sm:gap-8 items-center">
                         <Link
                             to="/"
-                            className="text-xs sm:text-xl py-1 no-underline text-black"
+                            className="text-sm sm:text-xl py-1 no-underline text-black"
                         >
                             Home
                         </Link>
                         <Link
                             to="/stack"
-                            className="text-xs sm:text-xl py-1 no-underline text-black"
+                            className="text-sm sm:text-xl py-1 no-underline text-black"
                         >
                             TechnicalStack
                         </Link>
                         <Link
                             to="/production"
-                            className="text-xs sm:text-xl py-1 no-underline text-black"
+                            className="text-sm sm:text-xl py-1 no-underline text-black"
                         >
-                            Production
+                            Product
                         </Link>
                         <Link
                             to="/Freeboard"
-                            className="text-xs sm:text-xl py-1 no-underline text-black"
+                            className="text-sm sm:text-xl py-1 no-underline text-black"
                         >
                             Freeboard
                         </Link>
                         <Link
                             to="/contact"
-                            className="text-xs sm:text-xl py-1 no-underline text-black"
+                            className="text-sm sm:text-xl py-1 no-underline text-black"
                         >
                             Contact
                         </Link>
@@ -56,7 +56,7 @@ const App: React.FC = () => {
                         <Route path="/stack" element={<Stack />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/Freeboard" element={<Freeboard />} />
-                        <Route path="/Production" element={<Production />} />
+                        <Route path="/Production" element={<Product />} />
                     </Routes>
                 </div>
 

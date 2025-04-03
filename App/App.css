@@ -1,11 +1,9 @@
 /* Google Fonts の Domine を全体に適用 */
-@import url("https://fonts.googleapis.com/css2?family=Domine&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  font-family: 'Domine', serif; /* 正しいフォント名を使用 */
   margin: 0;
   padding: 0;
   background-color: #f0f0f5; /* ページ全体の背景色を微調整 */
@@ -78,7 +76,6 @@ body {
 /* テキストのスタイル */
 .read-the-docs {
   color: #888;
-  font-style: italic;
   transition: color 300ms;
 }
 .read-the-docs:hover {
