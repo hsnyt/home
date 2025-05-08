@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Production: React.FC = () => (
-    <div className="min-h-screen flex items-center justify-center px-4 py-8">
-        <div className="flex flex-col md:flex-row gap-52 w-full max-w-5xl justify-center items-center">
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 mt-24">
+        <div className="flex flex-col-reverse md:flex-row gap-52 w-full max-w-5xl justify-center items-center">
             {/* 画像1 */}
             <div className="w-full max-w-sm flex flex-col items-center">
                 <div className="w-full aspect-square shadow-2xl hover:scale-110 transition-transform duration-300">

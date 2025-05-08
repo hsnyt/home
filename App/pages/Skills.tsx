@@ -30,7 +30,7 @@ const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
     </div>
 );
 
-const Stack: React.FC = () => (
+const Skills: React.FC = () => (
     <div className="mt-24">
         <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-12 font-sans　pt-20">
 
@@ -81,4 +81,4 @@ const Stack: React.FC = () => (
     </div>
 );
 
-export default Stack;
+export default Skills;

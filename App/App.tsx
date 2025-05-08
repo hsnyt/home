@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import Stack from './pages/Stack';
+import Skills from './pages/Skills.tsx';
 import Freeboard from './pages/Freeboard';
 import Contact from './pages/Contact';
 import Product from "./pages/Production.tsx";
@@ -24,10 +24,10 @@ const App: React.FC = () => {
                             Home
                         </Link>
                         <Link
-                            to="/stack"
+                            to="/skills"
                             className="text-sm sm:text-xl py-1 no-underline text-black"
                         >
-                            TechnicalStack
+                            Skills
                         </Link>
                         <Link
                             to="/production"
@@ -35,12 +35,13 @@ const App: React.FC = () => {
                         >
                             Product
                         </Link>
-                        <Link
+                        {/*<Link
                             to="/Freeboard"
                             className="text-sm sm:text-xl py-1 no-underline text-black"
                         >
                             Freeboard
                         </Link>
+                        */}
                         <Link
                             to="/contact"
                             className="text-sm sm:text-xl py-1 no-underline text-black"
@@ -53,7 +54,7 @@ const App: React.FC = () => {
                 <div>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/stack" element={<Stack />} />
+                        <Route path="/skills" element={<Skills />} />
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/Freeboard" element={<Freeboard />} />
                         <Route path="/Production" element={<Product />} />
