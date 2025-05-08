@@ -5,7 +5,7 @@ const Production: React.FC = () => (
         <div className="flex flex-col-reverse md:flex-row gap-52 w-full max-w-5xl justify-center items-center">
             {/* 画像1 */}
             <div className="w-full max-w-sm flex flex-col items-center">
-                <div className="w-full aspect-square shadow-2xl hover:scale-110 transition-transform duration-300">
+                <div className="w-9/12 aspect-square shadow-2xl hover:scale-110 transition-transform duration-300">
                     <img
                         src="/images/production/1.png"
                         alt="1"
@@ -17,7 +17,7 @@ const Production: React.FC = () => (
 
             {/* 画像2（背景的） */}
             <div className="w-full max-w-sm flex flex-col items-center">
-                <div className="w-full aspect-square shadow-2xl shadow-black hover:scale-110 transition-transform duration-300 opacity-20">
+                <div className="w-9/12 aspect-square shadow-2xl shadow-black hover:scale-110 transition-transform duration-300 opacity-20">
                     <img
                         src="/images/production/rescue.png"
                         alt="rescue"
