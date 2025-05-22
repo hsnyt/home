@@ -10,9 +10,9 @@ interface BlogPost {
   active: boolean;
 }
 
-const API_URL = window.location.hostname === 'localhost' 
+const API_URL = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1')
   ? 'https://blog.haonnoahjp.workers.dev/api'  // 開発環境
-  : 'https://hsnyt.com/api';  // 本番環境（カスタムドメイン）
+  : 'https://blog.haonnoahjp.workers.dev/api';  // 本番環境も同じエンドポイントを使用
 
 export const BlogPage = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -20,14 +20,21 @@ export const BlogPage = () => {
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
 
   useEffect(() => {
+    console.log('Current hostname:', window.location.hostname);
+    console.log('Current URL:', window.location.href);
+    console.log('Using API URL:', API_URL);
+
     const fetchPosts = async () => {
       try {
+        console.log('Fetching from:', `${API_URL}/posts`);
         const response = await fetch(`${API_URL}/posts`);
         if (!response.ok) {
-          throw new Error('投稿の取得に失敗しました');
+          throw new Error(`投稿の取得に失敗しました: ${response.status} ${response.statusText}`);
         }
         const data = await response.json();
+        console.log('Received data:', data);
         const activePosts = data.filter((post: BlogPost) => post.active !== false);
+        console.log('Active posts:', activePosts);
         setPosts(activePosts);
       } catch (error) {
         console.error('投稿の取得に失敗しました:', error);
