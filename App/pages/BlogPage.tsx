@@ -10,9 +10,9 @@ interface BlogPost {
   active: boolean;
 }
 
-const API_BASE_URL = import.meta.env.MODE === 'development' 
-  ? 'http://localhost:8787/api'  // 開発環境
-  : 'https://hsnyt.com/api';     // 本番環境
+const API_URL = window.location.hostname === 'localhost' 
+  ? 'https://blog.haonnoahjp.workers.dev/api'  // 開発環境
+  : 'https://hsnyt.com/api';  // 本番環境（カスタムドメイン）
 
 export const BlogPage = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -22,7 +22,7 @@ export const BlogPage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/posts`);
+        const response = await fetch(`${API_URL}/posts`);
         if (!response.ok) {
           throw new Error('投稿の取得に失敗しました');
         }
