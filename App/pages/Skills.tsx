@@ -12,18 +12,21 @@ interface SkillSectionProps {
 }
 
 const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
-    <div className="text-center p-6">
-        <p className="text-3xl mb-4 font-bold">{title}</p>
-        <div className="flex flex-wrap gap-8 justify-center">
+    <div className="w-full max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8 mb-8">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">{title}</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {skills.map((skill) => (
-                <div key={skill.name} className="relative group flex flex-col items-center text-center w-40">
-                    <img
-                        src={getImage(skill.name)}
-                        className="w-16 h-16 sm:w-20 sm:h-20 object-contain transition-transform duration-300 group-hover:rotate-45"
-                        alt={skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}
-                    />
-                    <span
-                        className="mt-2 text-lg font-medium">{skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}</span>
+                <div key={skill.name} className="flex flex-col items-center">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gray-50 rounded-lg p-3 shadow-sm">
+                        <img
+                            src={getImage(skill.name)}
+                            className="w-full h-full object-contain"
+                            alt={skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}
+                        />
+                    </div>
+                    <span className="mt-3 text-sm font-medium text-gray-600">
+                        {skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}
+                    </span>
                 </div>
             ))}
         </div>
@@ -31,9 +34,8 @@ const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
 );
 
 const Skills: React.FC = () => (
-    <div className="mt-24">
-        <div className="min-h-screen flex flex-col items-center justify-center p-4 space-y-12 font-sans　pt-20">
-
+    <div className="min-h-screen bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
             {/* Frontend Skills */}
             <SkillSection
                 title="Frontend Development"

@@ -1,0 +1,12 @@
+# Workerの名前
+name = "blog"
+# エントリーポイント
+main = "src/worker.ts"
+# 互換性の日付
+compatibility_date = "2025-05-22"
+
+# D1データベースの設定
+[[d1_databases]]
+binding = "DB"
+database_name = "hsnyt"
+database_id = "ce90910f-1ef1-47ae-95b2-926529273df9"
