@@ -74,7 +74,7 @@ export const BlogPage = () => {
             <p className="text-gray-500">記事がありません</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
             {posts.map((post) => (
               <article 
                 key={post.id} 
@@ -125,7 +125,7 @@ export const BlogPage = () => {
                   <h2 className="text-2xl font-bold text-gray-900">{selectedPost.title}</h2>
                   <button
                     onClick={handleCloseModal}
-                    className="text-white hover:text-gray-400 focus:outline-none transition-colors duration-200"
+                    className="text-gray-900 hover:text-gray-600 focus:outline-none transition-colors duration-200 bg-white rounded-full p-1"
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

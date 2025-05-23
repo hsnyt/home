@@ -4,6 +4,7 @@ const getImage = (fileName: string): string => `/images/${fileName}.png`;
 
 interface Skill {
     name: string;
+    displayName: string;
 }
 
 interface SkillSectionProps {
@@ -21,11 +22,11 @@ const SkillSection: React.FC<SkillSectionProps> = ({ title, skills }) => (
                         <img
                             src={getImage(skill.name)}
                             className="w-full h-full object-contain"
-                            alt={skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}
+                            alt={skill.displayName}
                         />
                     </div>
                     <span className="mt-3 text-sm font-medium text-gray-600">
-                        {skill.name.charAt(0).toUpperCase() + skill.name.slice(1)}
+                        {skill.displayName}
                     </span>
                 </div>
             ))}
@@ -39,45 +40,68 @@ const Skills: React.FC = () => (
             {/* Frontend Skills */}
             <SkillSection
                 title="Frontend Development"
-                skills={[{name: 'react'}, {name: 'hono'}, {name: 'ts'}]}
+                skills={[
+                    {name: 'react', displayName: 'React'},
+                    {name: 'hono', displayName: 'Hono'},
+                    {name: 'ts', displayName: 'TypeScript'}
+                ]}
             />
 
             <SkillSection
                 title="Styling & UI"
-                skills={[{name: 'tailwind'}]}
+                skills={[{name: 'tailwind', displayName: 'Tailwind CSS'}]}
             />
 
             {/* Backend Skills */}
             <SkillSection
                 title="Backend Development"
-                skills={[{name: 'php'}, {name: 'python'}, {name: 'c'}]}
+                skills={[
+                    {name: 'php', displayName: 'PHP'},
+                    {name: 'python', displayName: 'Python'},
+                    {name: 'c', displayName: 'C#'}
+                ]}
             />
 
             <SkillSection
                 title="Database"
-                skills={[{name: 'mysql'}]}
+                skills={[{name: 'mysql', displayName: 'MySQL'}]}
             />
 
             {/* Cloud Skills */}
             <SkillSection
                 title="Infrastructure"
-                skills={[{name: 'aws'}, {name: 'gcp'}, {name: 'cloudflare'}]}
+                skills={[
+                    {name: 'aws', displayName: 'Amazon Web Services'},
+                    {name: 'gcp', displayName: 'Google Cloud Platform'},
+                    {name: 'cloudflare', displayName: 'Cloudflare'}
+                ]}
             />
 
             {/* Dev Tools */}
             <SkillSection
                 title="Development Tools"
-                skills={[{name: 'docker'}, {name: 'zapier'}, {name: 'line'}, {name: 'contentful'}]}
+                skills={[
+                    {name: 'docker', displayName: 'Docker'},
+                    {name: 'zapier', displayName: 'Zapier'},
+                    {name: 'line', displayName: 'LINE Platform'},
+                    {name: 'contentful', displayName: 'Contentful'}
+                ]}
             />
 
             <SkillSection
                 title="Design Tools"
-                skills={[{name: 'figma'}, {name: 'photoshop'}]}
+                skills={[
+                    {name: 'figma', displayName: 'Figma'},
+                    {name: 'photoshop', displayName: 'Adobe Photoshop'}
+                ]}
             />
 
             <SkillSection
                 title="Others"
-                skills={[{name: 'notion'}, {name: 'salesforce'}]}
+                skills={[
+                    {name: 'notion', displayName: 'Notion'},
+                    {name: 'salesforce', displayName: 'Salesforce'}
+                ]}
             />
         </div>
     </div>
