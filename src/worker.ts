@@ -9,18 +9,30 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    // CORSヘッダー
-    const corsHeaders = {
-      'Access-Control-Allow-Origin': 'http://localhost:5173',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Max-Age': '86400',
-    };
+    // 許可するオリジンのリストを定義
+    const allowedOrigins = [
+      'https://hsnyt.com',
+      'http://localhost:5173',
+      // 必要に応じて他の開発環境のオリジンなどを追加
+    ];
+
+    const origin = request.headers.get('Origin');
+    const corsResponseHeaders = new Headers();
+
+    // 許可されたオリジンからのリクエストの場合のみ Access-Control-Allow-Origin を設定
+    if (origin && allowedOrigins.includes(origin)) {
+      corsResponseHeaders.set('Access-Control-Allow-Origin', origin);
+    }
 
     // OPTIONSリクエストの処理
     if (request.method === 'OPTIONS') {
+      corsResponseHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+      corsResponseHeaders.set('Access-Control-Allow-Headers', 'Content-Type'); // クライアントが送る可能性のあるヘッダーを追加
+      corsResponseHeaders.set('Access-Control-Max-Age', '86400');
+
       return new Response(null, {
-        headers: corsHeaders,
+        status: 204,
+        headers: corsResponseHeaders,
       });
     }
 
@@ -35,7 +47,7 @@ export default {
         if (!title || !content) {
           return new Response(JSON.stringify({ error: 'タイトルと本文は必須です' }), {
             status: 400,
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            headers: { ...Object.fromEntries(corsResponseHeaders.entries()), 'Content-Type': 'application/json' },
           });
         }
 
@@ -60,14 +72,14 @@ export default {
           }
 
           return new Response(JSON.stringify({ id: postId }), {
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            headers: { ...Object.fromEntries(corsResponseHeaders.entries()), 'Content-Type': 'application/json' },
             status: 201,
           });
         } catch (dbError) {
           console.error('Database error:', dbError);
           return new Response(JSON.stringify({ error: 'データベースエラーが発生しました' }), {
+            headers: { ...Object.fromEntries(corsResponseHeaders.entries()), 'Content-Type': 'application/json' },
             status: 500,
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
           });
         }
       }
@@ -94,7 +106,7 @@ export default {
         );
 
         return new Response(JSON.stringify(postsWithImages), {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          headers: { ...Object.fromEntries(corsResponseHeaders.entries()), 'Content-Type': 'application/json' },
         });
       }
 
@@ -123,20 +135,20 @@ export default {
             images: images.results.map((img: Record<string, unknown>) => img.image_url as string),
           }),
           {
-            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+            headers: { ...Object.fromEntries(corsResponseHeaders.entries()), 'Content-Type': 'application/json' },
           }
         );
       }
 
       return new Response('Not Found', { 
         status: 404,
-        headers: corsHeaders,
+        headers: corsResponseHeaders,
       });
     } catch (error) {
       console.error('Error:', error);
       return new Response(JSON.stringify({ error: 'Internal Server Error', details: error.message }), {
         status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        headers: { ...Object.fromEntries(corsResponseHeaders.entries()), 'Content-Type': 'application/json' },
       });
     }
   },

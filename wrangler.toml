@@ -3,10 +3,19 @@ name = "blog"
 # エントリーポイント
 main = "src/worker.ts"
 # 互換性の日付
-compatibility_date = "2025-05-22"
+compatibility_date = "2024-01-01"
 
 # D1データベースの設定
 [[d1_databases]]
 binding = "DB"
 database_name = "hsnyt"
 database_id = "ce90910f-1ef1-47ae-95b2-926529273df9"
+
+# カスタムドメインのルーティング設定
+routes = [
+  { pattern = "api.hsnyt.com/*", zone_name = "hsnyt.com" }
+]
+
+# 開発環境の設定
+[dev]
+port = 8787
