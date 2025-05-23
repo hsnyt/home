@@ -41,7 +41,7 @@ const Skills: React.FC = () => (
             <SkillSection
                 title="Frontend Development"
                 skills={[
-                    {name: 'react', displayName: 'React'},
+                    {name: 'react', displayName: 'React '},
                     {name: 'hono', displayName: 'Hono'},
                     {name: 'ts', displayName: 'TypeScript'}
                 ]}
