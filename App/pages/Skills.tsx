@@ -71,8 +71,8 @@ const Skills: React.FC = () => (
             <SkillSection
                 title="Infrastructure"
                 skills={[
-                    {name: 'aws', displayName: 'Amazon Web Services'},
-                    {name: 'gcp', displayName: 'Google Cloud Platform'},
+                    {name: 'aws', displayName: 'AWS'},
+                    {name: 'gcp', displayName: 'GCP'},
                     {name: 'cloudflare', displayName: 'Cloudflare'}
                 ]}
             />

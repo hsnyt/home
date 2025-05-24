@@ -32,6 +32,14 @@ const Header = () => {
     }
   };
 
+  const navLinks = [
+    { path: '/', label: 'Home' },
+    { path: '/skills', label: 'Skills' },
+    { path: '/production', label: 'Product' },
+    { path: '/blog', label: 'Blog' },
+    { path: '/contact', label: 'Contact' }
+  ];
+
   return (
     <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 py-2 sm:px-10 sm:py-4 bg-white shadow-md z-10">
       <a href="/">
@@ -40,36 +48,17 @@ const Header = () => {
 
       {/* ナビゲーションメニュー */}
       <nav className="flex gap-3 sm:gap-8 items-center">
-        <Link
-          to="/"
-          className="text-sm sm:text-xl py-1 no-underline text-black"
-        >
-          Home
-        </Link>
-        <Link
-          to="/skills"
-          className="text-sm sm:text-xl py-1 no-underline text-black"
-        >
-          Skills
-        </Link>
-        <Link
-          to="/production"
-          className="text-sm sm:text-xl py-1 no-underline text-black"
-        >
-          Product
-        </Link>
-        <Link
-          to="/blog"
-          className="text-sm sm:text-xl py-1 no-underline text-black"
-        >
-          Blog
-        </Link>
-        <Link
-          to="/contact"
-          className="text-sm sm:text-xl py-1 no-underline text-black"
-        >
-          Contact
-        </Link>
+        {navLinks.map((link) => (
+          link.path !== location.pathname && (
+            <Link
+              key={link.path}
+              to={link.path}
+              className="text-sm sm:text-xl py-1 no-underline text-black"
+            >
+              {link.label}
+            </Link>
+          )
+        ))}
       </nav>
     </header>
   );
