@@ -49,15 +49,17 @@ const Header = () => {
       {/* ナビゲーションメニュー */}
       <nav className="flex gap-3 sm:gap-8 items-center">
         {navLinks.map((link) => (
-          link.path !== location.pathname && (
-            <Link
-              key={link.path}
-              to={link.path}
-              className="text-sm sm:text-xl py-1 no-underline text-black"
-            >
-              {link.label}
-            </Link>
-          )
+          <Link
+            key={link.path}
+            to={link.path}
+            className={
+              link.path === location.pathname
+                ? "text-blue-600 font-bold text-sm sm:text-xl py-1"
+                : "text-sm sm:text-xl py-1 no-underline text-black"
+            }
+          >
+            {link.label}
+          </Link>
         ))}
       </nav>
     </header>
@@ -88,7 +90,7 @@ const App: React.FC = () => {
                 <Header />
                 <AppContent />
                 <footer className="pb-10">
-                    <p className="text-center pt-8">@2023 Yuta Hoshino</p>
+                    <p className="text-center pt-8">@2023 hsnyt</p>
                 </footer>
             </Router>
         </div>
