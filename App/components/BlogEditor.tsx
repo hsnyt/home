@@ -148,6 +148,14 @@ export const BlogEditor = ({ onSave, initialPost, onHide, onCancel }: BlogEditor
                   alt="サムネイル"
                   className="w-full h-full object-cover rounded-lg"
                 />
+                <button
+                  type="button"
+                  onClick={() => setThumbnailPreview("")}
+                  className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-7 h-7 flex items-center justify-center hover:bg-red-600"
+                  title="サムネイル削除"
+                >
+                  ×
+                </button>
               </div>
             )}
           </div>
